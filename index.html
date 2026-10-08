@@ -1,26 +1,69 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="google-adsense-account" content="ca-pub-6958734306376288">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6958734306376288" crossorigin="anonymous"></script>
-  <title>Kleenest</title>
-  <meta name="description" content="Kleenest helps people discover useful places and restroom information nearby.">
-  <style>
-    :root{color-scheme:dark light;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0f1412;color:#f4f7f5}
-    main{max-width:720px;padding:32px;text-align:center}
-    h1{font-size:clamp(2.5rem,8vw,5rem);margin:0 0 12px}
-    p{font-size:1.1rem;line-height:1.6;color:#cbd5cf}
-    a{display:inline-block;margin-top:18px;padding:13px 20px;border-radius:999px;background:#fff;color:#0f1412;text-decoration:none;font-weight:700}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#173d2b">
+<meta name="google-adsense-account" content="ca-pub-6958734306376288">
+<meta name="description" content="Learn how to find nearby restroom options, evaluate accessibility and evidence, and contribute useful local place information with Kleenest.">
+<link rel="canonical" href="https://matthagersenior.github.io/">
+<title>Kleenest | Find restrooms and understand local place information</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#183929;background:#f6f9f5;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0}a{color:#145a37}a:focus-visible,button:focus-visible{outline:3px solid #dfab33;outline-offset:4px}
+.skip{position:absolute;top:-200px;left:16px;background:#fff;padding:12px;z-index:9}.skip:focus{top:12px}
+header{background:#173d2b;color:#fff}header .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:17px 22px}
+header nav{display:flex;flex-wrap:wrap;gap:16px}header a{color:#fff}.brand{font-weight:850;font-size:1.3rem;letter-spacing:.01em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}main{padding-bottom:50px}.hero{background:linear-gradient(145deg,#dceee0,#f6f9f5);padding:66px 0 54px}
+.eyebrow{font-size:.84rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:#267249}
+h1{font-size:clamp(2.3rem,6vw,4.7rem);letter-spacing:-.05em;line-height:1.08;margin:12px 0 22px;max-width:800px}
+.lead{font-size:clamp(1.1rem,2.4vw,1.35rem);line-height:1.65;max-width:770px;color:#355947}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.button{display:inline-block;border-radius:12px;padding:13px 20px;text-decoration:none;font-weight:750;border:2px solid #173d2b}
+.button.primary{color:white;background:#173d2b}.button.secondary{color:#173d2b;background:transparent}
+section.content{padding:44px 0 12px}h2{font-size:clamp(1.65rem,3vw,2.2rem);margin:0 0 16px}h3{margin:0 0 10px;font-size:1.17rem}
+p,li{line-height:1.7}p{margin:0 0 17px}.muted{color:#496355}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:22px 0}
+.card{background:#fff;border:1px solid #cbded0;border-radius:16px;padding:24px}.card p{margin-bottom:0}
+.guide{display:block;height:100%;color:inherit;text-decoration:none}.guide strong{color:#17653a;text-decoration:underline;text-underline-offset:3px}.guide:hover{border-color:#26794a}
+.notice{background:#e6f1e7;border-left:5px solid #297449;padding:20px 24px;border-radius:7px}
+footer{background:#173d2b;color:#d9eadf;padding:35px 0}footer a{color:#fff}footer .links{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:18px}
+@media(max-width:520px){.hero{padding:45px 0}section.content{padding-top:33px}.card{padding:20px}}
+</style>
 </head>
 <body>
-  <main>
-    <h1>Kleenest</h1>
-    <p>Discover useful places, restroom information, and community-powered location intelligence.</p>
-    <a href="/Kleenest_Production/">Open Kleenest</a>
-  </main>
-</body>
-</html>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="wrap"><span class="brand">Kleenest</span><nav aria-label="Site navigation"><a href="#how-it-works">How it works</a><a href="#understanding-results">Understanding results</a><a href="#guides">Guides</a><a href="/Kleenest_Production/">Open the app</a></nav></div></header>
+<main id="main">
+<section class="hero"><div class="wrap"><span class="eyebrow">Local discovery with restroom information</span>
+<h1>Know your options before you need a restroom.</h1>
+<p class="lead">Kleenest helps people discover nearby places, understand available restroom information, and make more informed stops. The web app is interactive, and these guides explain how to interpret place results and contribute better information.</p>
+<div class="actions"><a class="button primary" href="/Kleenest_Production/nearby">Explore nearby places</a><a class="button secondary" href="#how-it-works">Learn how Kleenest works</a></div>
+</div></section>
+<section class="content" id="how-it-works"><div class="wrap"><h2>From search to a useful stop</h2>
+<div class="grid">
+<article class="card"><h3>1. Discover what's around you</h3><p>Open Explore to look for locations near your current area or a place you want to visit. Use the map and list together: a nearby business may be worth inspecting even when no restroom information has been contributed yet.</p></article>
+<article class="card"><h3>2. Examine the details</h3><p>Open a location for available restroom information, community observations, reported amenities, and location context. A listing is a starting point for deciding whether a stop suits your needs, not a guarantee of public access.</p></article>
+<article class="card"><h3>3. Choose and navigate</h3><p>Compare practical factors such as distance, accessibility information, family facilities, and reported restrictions. When a place seems suitable, use directions or route planning to reach it.</p></article>
+</div></div></section>
+<section class="content" id="understanding-results"><div class="wrap"><h2>What place results can — and cannot — tell you</h2>
+<p>Being on the map and having a confirmed public restroom are different facts. A restaurant, service station, store, or other place can be useful to discover even if nobody has submitted restroom evidence. Kleenest aims to make those distinctions visible rather than hiding every unknown location.</p>
+<div class="grid">
+<article class="card"><h3>Listed place</h3><p>The business or point of interest is part of local discovery. A place listing by itself does not establish restroom availability, opening hours, free access, or specific facilities.</p></article>
+<article class="card"><h3>Reported information</h3><p>Community reports can describe practical features such as accessible stalls, changing tables, family restrooms, or purchase requirements. Reports may become outdated and should be read with their context.</p></article>
+<article class="card"><h3>Evidence and recency</h3><p>When available, verification and freshness indicators help you distinguish more recent supporting observations from older or unknown information. Conditions can change even after a visit.</p></article>
+</div>
+<div class="notice"><strong>Before a time-sensitive trip:</strong> Review the available evidence, check the business's current access rules if needed, and have another option in mind. A map result is not a promise that a restroom is open or usable.</div>
+</div></section>
+<section class="content" id="guides"><div class="wrap"><h2>Practical guides</h2><p class="muted">These explanations are available without an account. They complement the live map and are useful even when location permissions are off.</p>
+<div class="grid">
+<a class="card guide" href="/guides/choosing-a-restroom-stop.html"><h3>Choosing a restroom stop</h3><p>How to weigh distance, access rules, restroom types, uncertain information, and the need for a backup.</p><strong>Read the guide →</strong></a>
+<a class="card guide" href="/guides/contributing-place-information.html"><h3>Contributing useful place information</h3><p>How to distinguish firsthand observations from prior knowledge, describe changes responsibly, and respect other people's privacy.</p><strong>Read the guide →</strong></a>
+</div></div></section>
+<section class="content"><div class="wrap"><h2>For visitors and local businesses</h2>
+<p>Kleenest is designed for people looking for practical stop information and for businesses that want accurate location details. Discovery, restroom reporting, and community evidence are separate activities: you can search for places before joining, while contributions may require an account and appropriate permissions.</p>
+<div class="actions"><a class="button primary" href="/Kleenest_Production/">Open the Kleenest web app</a><a class="button secondary" href="/Kleenest_Production/contact.html">Contact Kleenest</a></div>
+</div></section>
+</main>
+<footer><div class="wrap"><strong>Kleenest</strong><p>Find places, assess available information, and get moving. Some details are user-reported; check conditions before traveling.</p>
+<div class="links"><a href="/Kleenest_Production/">Web app</a><a href="/Kleenest_Production/contact.html">Contact</a><a href="mailto:support@kleenest.us">Support</a><a href="/Kleenest_Production/legal/privacy.html">Privacy policy</a><a href="/Kleenest_Production/legal/terms.html">Terms</a><a href="/Kleenest_Production/legal/community-guidelines.html">Community guidelines</a></div></div></footer>
+</body></html>

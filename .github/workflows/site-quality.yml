@@ -1,0 +1,54 @@
+name: Site quality
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  static-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate public pages and links
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlsplit
+          import xml.etree.ElementTree as ET
+          class Links(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.links = []
+                  self.headings = []
+                  self.scripts = []
+              def handle_starttag(self, tag, attrs):
+                  data = dict(attrs)
+                  if tag == 'a': self.links.append(data.get('href', ''))
+                  if tag == 'h1': self.headings.append(tag)
+                  if tag == 'script': self.scripts.append(data.get('src', 'inline'))
+          pages = [Path('index.html'), *sorted(Path('guides').glob('*.html'))]
+          assert len(pages) == 3, f'Unexpected public content pages: {pages}'
+          for page in pages:
+              html = page.read_text()
+              parser = Links()
+              parser.feed(html)
+              assert len(parser.headings) == 1, f'{page}: missing or duplicate H1'
+              assert not parser.scripts, f'{page}: unexpected script on an informational page'
+              assert 'description' in html and 'canonical' in html, f'{page}: missing metadata'
+              for href in parser.links:
+                  assert href, f'{page}: empty link'
+                  parsed = urlsplit(href)
+                  if href.startswith('mailto:') or parsed.scheme in ('https','http'): continue
+                  if href.startswith('/Kleenest_Production/'): continue  # consumer app deployment
+                  if href.startswith('#'): continue
+                  target = (Path('.') / parsed.path.lstrip('/')) if parsed.path.startswith('/') else page.parent / parsed.path
+                  if not parsed.path: continue
+                  if str(parsed.path) == '/': target = Path('index.html')
+                  assert target.is_file(), f'{page}: broken link {href}'
+          assert 'google-adsense-account' in Path('index.html').read_text(), 'AdSense ownership meta missing'
+          assert 'adsbygoogle' not in ''.join(p.read_text() for p in pages), 'Google ad script must not run on navigation/content-light pages'
+          assert Path('ads.txt').is_file()
+          assert 'Sitemap:' in Path('robots.txt').read_text()
+          ET.parse('sitemap.xml')
+          print(f'PASS: {len(pages)} informational pages; static links, metadata, ad policy and sitemap validated')
+          PY
